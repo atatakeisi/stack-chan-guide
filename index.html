@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタックちゃん 設定マニュアル</title>
+    <style>
+        :root {
+            --primary-color: #ffaa00;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-main: #333;
+            --text-sub: #666;
+        }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.8; color: var(--text-main); background-color: var(--bg-color); margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { background: linear-gradient(135deg, #444, #222); color: #fff; padding: 40px 20px; text-align: center; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; }
+        section { background: var(--card-bg); margin-bottom: 25px; padding: 30px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { border-bottom: 3px solid var(--primary-color); padding-bottom: 10px; color: #222; display: flex; align-items: center; gap: 10px; }
+        h3 { color: var(--primary-color); margin-top: 25px; }
+        .screenshot { background: #fdfdfd; border: 2px dashed #ddd; border-radius: 10px; padding: 40px 20px; text-align: center; margin: 20px 0; color: #aaa; transition: 0.3s; }
+        .screenshot:hover { border-color: var(--primary-color); background: #fffbf0; }
+        .screenshot img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .step-box { background: #f8f9fa; border-left: 5px solid #ccc; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        code { background: #eef; color: #d63384; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #fcfcfc; color: var(--text-sub); }
+        .warning-card { background: #fff5f5; border: 1px solid #feb2b2; padding: 20px; border-radius: 12px; color: #c53030; }
+        .footer { text-align: center; padding: 40px 0; color: #888; font-size: 0.9rem; }
+        a { color: #007bff; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🤖 スタックちゃん 接続マニュアル</h1>
+        <p>はじめての設定をステップバイステップで解説します</p>
+    </header>
+
+    <section>
+        <h2>📶 1. Wi-Fi設定 (wifi.txt)</h2>
+        <p>スタックちゃんをインターネットに繋ぐため、<code>wifi.txt</code>を作成します 。</p>
+
+        <div class="step-box">
+            <h3>A. 自宅Wi-Fiを使う</h3>
+            <ul>
+                <li>ルーターのシール等で<b>SSID</b>を確認し、1行目に記入 </li>
+                <li><b>パスワード</b>を確認し、2行目に記入 </li>
+            </ul>
+        </div>
+        <div class="screenshot">
+            <img src="./images/スクリーンショット%202026-02-25%209.04.14.png" alt="ルーターのラベルや設定画面のスクリーンショット">
+        </div>
+
+        <div class="step-box">
+            <h3>B. iPhoneテザリングを使う</h3>
+            <ul>
+                <li>「設定」＞「インターネット共有」を<b>ON</b>にします </li>
+                <li>表示されている<b>iPhoneの名前</b>を1行目に記入 </li>
+            </ul>
+        </div>
+        <div class="screenshot">
+            <img src="./images/スクリーンショット%202026-02-25%209.04.34.png" alt="iPhoneのテザリング設定画面のスクリーンショット">
+        </div>
+    </section>
+
+    <section>
+        <h2>🔑 2. 各種APIキーの取得 (apikey.txt)</h2>
+        <p>会話や音声機能を使うための「鍵」を3種類用意します 。</p>
+        
+        <table>
+            <thead>
+                <tr><th>場所</th><th>項目名</th><th>公式サイト</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1行目</td><td><b>Gemini API</b></td><td><a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a> </td></tr>
+                <tr><td>2行目</td><td><b>VoiceVox API</b></td><td><a href="https://tts.quest/" target="_blank">tts.quest</a> </td></tr>
+                <tr><td>3行目</td><td><b>Google STT API</b></td><td><a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> </td></tr>
+            </tbody>
+        </table>
+
+        <div class="screenshot">
+            <img src="./images/スクリーンショット%202026-02-25%209.05.25.png" alt="APIキー発行画面のスクリーンショット 1">
+            <img src="./images/スクリーンショット%202026-02-25%209.05.55.png" alt="APIキー発行画面のスクリーンショット 2">
+            <img src="./images/スクリーンショット%202026-02-25%209.06.31.png" alt="APIキー発行画面のスクリーンショット 3">
+            <img src="./images/スクリーンショット%202026-02-25%209.21.56.png" alt="APIキー発行画面のスクリーンショット 4">
+        </div>
+    </section>
+
+    <section class="warning-card">
+        <h2>⚠️ 公開時の注意点</h2>
+        <ul>
+            <li><b>APIキーをGitHubなどに絶対に公開しないでください</b> 。</li>
+            <li>万が一漏れた場合は、すぐに各サイトでキーを無効化してください 。</li>
+        </ul>
+    </section>
+
+    <div class="footer">
+        <p>更新日: 2026-02-25 </p>
+        <p>&copy; 2026 Stack-chan Project</p>
+    </div>
+</div>
+
+</body>
+</html>
